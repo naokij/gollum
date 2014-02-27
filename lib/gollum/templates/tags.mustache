@@ -1,6 +1,6 @@
 <div id="wiki-wrapper" class="results">
 <div id="head">
-  <h1>Search Results for <strong>{{query}}</strong></h1>
+  <h1>Tags <strong>{{query}}</strong></h1>
   <ul class="actions">
     <li class="minibutton">
       {{>searchbar}}
@@ -9,24 +9,18 @@
        class="action-home-page">Home</a></li>
   </ul>
 </div>
-<div id="results">
+<div id="tagcloud">
+{{#has_tagcloud}}
+    {{#tags}}
+        <a href="{{base_url}}/search?q={{name}}" rel="{{count}}">{{name}}</a>
+    {{/tags}}
+{{/has_tagcloud}}
 
-{{#has_results}}
-  <ul>
-    {{#results}}
-    <li>
-      <a href="{{base_url}}/{{name}}">{{title}}</a>
-      <span class="count">({{count}} matches)</span>
-    </li>
-    {{/results}}
-  </ul>
-{{/has_results}}
-
-{{#no_results}}
+{{#no_tagcloud}}
   <p id="no-results">
-    There are no results for your search <strong>{{query}}</strong>.
+    There isn't any tag <strong>{{query}}</strong>.
   </p>
-{{/no_results}}
+{{/no_tagcloud}}
 
 </div>
 <div id="footer">

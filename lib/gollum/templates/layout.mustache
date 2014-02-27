@@ -27,6 +27,21 @@
   <script type="text/javascript" src="{{base_url}}/javascript/gollum.dialog.js"></script>
   <script type="text/javascript" src="{{base_url}}/javascript/gollum.placeholder.js"></script>
   <script type="text/javascript" src="{{base_url}}/javascript/editor/gollum.editor.js"></script>
+  {{#has_tagcloud}}
+  <script type="text/javascript" src="{{base_url}}/javascript/jquery.tagcloud.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.fn.tagcloud.defaults = {
+      size: {start: 9, end: 30, unit: 'pt'},
+      color: {start: '#cde', end: '#f52'}
+    };
+  	 $(document).ready(function(){
+  	   $("#tagcloud a").tagcloud();
+	   
+  	   
+     });
+   
+  </script>
+  {{/has_tagcloud}}
   {{#use_identicon}}
   <script type="text/javascript" src="{{base_url}}/javascript/identicon_canvas.js"></script>
   {{/use_identicon}}

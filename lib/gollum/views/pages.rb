@@ -47,7 +47,12 @@ module Precious
                 folder_link
               end
             elsif page_path != ".gitkeep"
-              %{<li><a href="#{@base_url}/#{page.escaped_url_path}" class="file">#{page.name}</a></li>}
+              begin
+                page_title = page.metadata_title ? page.metadata_title : page.name
+              rescue
+                page_title = page.name + '-<<<<'
+              end
+              %{<li><a href="#{@base_url}/#{page.escaped_url_path}" class="file">#{page_title}</a></li>}
             end
           }.compact.join("\n")
         else

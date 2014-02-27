@@ -406,6 +406,13 @@ module Precious
       wiki = wiki_new
       # Sort wiki search results by count (desc) and then by name (asc)
       @results = wiki.search(@query).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
+      @results.each do |r|
+        begin
+          r[:title] = wiki.page(r[:name]).metadata_title
+        rescue
+          r[:title] = r[:name]+"<--"
+        end
+      end
       @name = @query
       mustache :search
     end
@@ -437,6 +444,33 @@ module Precious
       @results = Gollum::FileView.new(content, options).render_files
       @ref = wiki.ref
       mustache :file_view, { :layout => false }
+    end
+    
+    get '/tags' do
+      wiki = wiki_new
+      options = settings.wiki_options
+      tags = []
+      wiki.pages.each do |page|
+        begin
+          page.metadata["tag"].split(" ").each { |tag| tags << tag}
+        rescue
+        end
+      end
+      tags.sort!
+      @tags = []
+      tags.each do |tag_name|
+        tags_found = 0
+        @tags.each do |tag|
+          if tag[:name] == tag_name
+            tags_found = tags_found + 1
+            tag[:count] = tag[:count] + 1
+          end
+        end
+        if tags_found == 0 
+          @tags << {:name => tag_name, :url => "search?q="+CGI.escape(tag_name), :count => 1}
+        end
+      end
+      mustache :tags
     end
 
     get '/*' do
