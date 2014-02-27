@@ -4,6 +4,7 @@ module Precious
   module Views
     class Pages < Layout
       attr_reader :results, :ref
+      include Precious::Helpers
 
       def title
         "All pages in #{@ref}"
@@ -48,8 +49,9 @@ module Precious
               end
             elsif page_path != ".gitkeep"
               begin
-                page_title = page.metadata_title ? page.metadata_title : page.name
+                page_title = page_header_from_page_name page.name
               rescue
+                #todo
                 page_title = page.name + '-<<<<'
               end
               %{<li><a href="#{@base_url}/#{page.escaped_url_path}" class="file">#{page_title}</a></li>}

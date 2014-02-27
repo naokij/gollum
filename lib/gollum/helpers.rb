@@ -39,5 +39,33 @@ module Precious
       url.gsub('%2F','/').gsub(/^\/+/,'').gsub('//','/')
     end
 
+    # Get page title form content of given page name
+    def page_header_from_page_name page_name
+      wiki = Gollum::Wiki.new(Precious::App.settings.gollum_path, Precious::App.settings.wiki_options)
+      page = wiki.page page_name
+      content = page.formatted_data
+      doc = Nokogiri::HTML::fragment(%{<div id="gollum-root">} + content.to_s + %{</div>}, 'UTF-8')
+      title = find_page_header_node(doc, page).inner_text.strip
+      title = nil if title.empty?
+      title
+    end
+    
+    # Finds page header node inside Nokogiri::HTML document.
+    #
+    def find_page_header_node(doc, page)
+      case page.format
+        when :asciidoc
+          doc.css("div#gollum-root > div#header > h1:first-child")
+        when :org
+          doc.css("div#gollum-root > p.title:first-child")
+        when :pod
+          doc.css("div#gollum-root > a.dummyTopAnchor:first-child + h1")
+        when :rest
+          doc.css("div#gollum-root > div > div > h1:first-child")
+        else
+          doc.css("div#gollum-root > h1:first-child")
+      end
+    end
+    
   end
 end

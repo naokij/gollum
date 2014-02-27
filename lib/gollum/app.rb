@@ -407,11 +407,7 @@ module Precious
       # Sort wiki search results by count (desc) and then by name (asc)
       @results = wiki.search(@query).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
       @results.each do |r|
-        begin
-          r[:title] = wiki.page(r[:name]).metadata_title
-        rescue
-          r[:title] = r[:name]+"<--"
-        end
+        r[:title] = page_header_from_page_name r[:name]
       end
       @name = @query
       mustache :search
@@ -523,7 +519,7 @@ module Precious
       content ||= page.raw_data
       wiki.update_page(page, name, format, content.to_s, commit)
     end
-
+    
     private
 
     # Options parameter to Gollum::Committer#initialize
