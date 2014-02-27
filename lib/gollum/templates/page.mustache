@@ -18,6 +18,8 @@ Mousetrap.bind(['e'], function( e ) {
       class="action-all-pages">All</a></li>
     <li class="minibutton"><a href="{{base_url}}/fileview"
     class="action-fileview">Files</a></li>
+    <li class="minibutton"><a href="{{base_url}}/tags"
+    class="action-tags">Tags</a></li>
     <li class="minibutton jaws">
       <a href="#" id="minibutton-new-page">New</a></li>
     {{#allow_uploads}}
@@ -74,6 +76,14 @@ Mousetrap.bind(['e'], function( e ) {
 
 </div>
 <div id="footer">
+  {{#has_tag}}
+  <div id="tag" class="gollum-tag">
+    <i class="icon-tags"></i>
+    {{#tag}}
+    <a href="{{base_url}}{{url}}">{{name}}</a> 
+    {{/tag}}
+  </div>
+  {{/has_tag}}
   <p id="last-edit">Last edited by <b>{{author}}</b>, {{date}}</p>
   <p>
     <a id="delete-link" href="{{base_url}}/{{escaped_url_path}}" data-confirm="Are you sure you want to delete this page?"><span>Delete this Page</span></a>

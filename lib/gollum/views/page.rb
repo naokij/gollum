@@ -35,6 +35,26 @@ module Precious
         first.authored_date.strftime(DATE_FORMAT)
       end
 
+      def tag
+        tag = @page.metadata["tag"]
+        begin
+          tag = tag.split(" ").sort
+          tag.map do |t| 
+            t = { "name" => t, "url" => "/search?q="+CGI.escape(t)}
+          end
+        rescue
+          tag = []
+        end
+      end
+      
+      def has_tag
+        @page.metadata["tag"] ? true : false
+      end
+      
+      def no_tag
+        @page.metadata["tag"] ? false : true
+      end
+      
       def noindex
         @version ? true : false
       end
