@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.name              = 'gollum'
   s.version           = '2.7.0'
-  s.date              = '2014-02-20'
+  s.date              = '2014-02-28'
   s.rubyforge_project = 'gollum'
   s.license           = 'MIT'
 
@@ -52,6 +52,202 @@ Gem::Specification.new do |s|
     lib/gollum/public/gollum/css/_styles.css
     lib/gollum/public/gollum/css/dialog.css
     lib/gollum/public/gollum/css/editor.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/.gitignore
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/.ruby-version
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/CONTRIBUTING.md
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/Gemfile
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/README.md
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/_config.yml
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/composer.json
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/css/font-awesome-ie7.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/css/font-awesome-ie7.min.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/css/font-awesome.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/css/font-awesome.min.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/font/FontAwesome.otf
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/font/fontawesome-webfont.eot
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/font/fontawesome-webfont.svg
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/font/fontawesome-webfont.ttf
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/font/fontawesome-webfont.woff
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/bootstrap.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/core.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/extras.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/font-awesome-ie7.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/font-awesome.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/icons.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/mixins.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/path.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/less/variables.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/package.json
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_bootstrap.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_core.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_extras.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_icons.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_mixins.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_path.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/_variables.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/font-awesome-ie7.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/scss/font-awesome.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/CNAME
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/Makefile
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/ads/carbon-dark-vertical.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/ads/carbon-light-horizontal.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/ads/carbon-light-vertical.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/brand-license.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/cheatsheet.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/community.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/community/getting-support.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/community/project-milestones.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/community/reporting-bugs.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/community/requesting-new-icons.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/community/submitting-pull-requests.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/animated-spinner.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/bordered-pulled.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/bulleted-lists.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/button-dropdowns.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/button-groups.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/buttons.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/custom.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/form-inputs.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/inline-icons.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/larger-icons.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/navigation.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/new.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/rotated-flipped.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/examples/stacked.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/footer.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/get-started.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/brand.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/currency.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/directional.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/medical.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/new.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/text-editor.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/video-player.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/icons/web-application.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/jumbotron-slider.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/jumbotron.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/license-code.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/license.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/navbar.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/stripe-ad.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/stripe-social.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/tell-me-thanks.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/tests/rotated-flipped-inside-anchor.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/tests/rotated-flipped-inside-btn.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/tests/rotated-flipped.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/tests/stacked-inside-anchor.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/tests/stacked.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/thanks-to.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/whats-new.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_includes/why.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_layouts/base.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_layouts/icon.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_plugins/icon_page_generator.rb
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/_plugins/site.rb
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/css/prettify.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/css/pygments.css
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/font/FontAwesome.otf
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/font/fontawesome-webfont.eot
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/font/fontawesome-webfont.svg
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/font/fontawesome-webfont.ttf
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/font/fontawesome-webfont.woff
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/bootstrap.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/core.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/extras.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/font-awesome-ie7.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/font-awesome.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/icons.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/mixins.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/path.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/less/variables.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_bootstrap.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_core.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_extras.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_icons.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_mixins.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_path.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/_variables.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/font-awesome-ie7.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/font-awesome/scss/font-awesome.scss
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/ico/favicon.ico
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/img/contribution-sample.png
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/img/fort_awesome.jpg
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/img/glyphicons-halflings-white.png
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/img/glyphicons-halflings.png
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/img/icon-flag.pdf
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/ZeroClipboard-1.1.7.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/ZeroClipboard-1.1.7.swf
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/backbone.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/bootstrap-2.3.1.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/bootstrap-222.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/jquery-1.7.1.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/prettify.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/site.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/js/underscore.min.js
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/accordion.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/alerts.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/bootstrap.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/breadcrumbs.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/button-groups.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/buttons.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/carousel.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/close.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/code.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/component-animations.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/dropdowns.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/forms.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/grid.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/hero-unit.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/labels-badges.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/layouts.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/media.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/mixins.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/modals.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/navbar.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/navs.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/pager.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/pagination.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/popovers.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/progress-bars.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/reset.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/responsive-1200px-min.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/responsive-767px-max.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/responsive-768px-979px.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/responsive-navbar.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/responsive-utilities.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/responsive.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/scaffolding.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/sprites.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/tables.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/thumbnails.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/tooltip.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/type.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/utilities.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/variables.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/bootstrap-2.3.2/wells.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/lazy.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/mixins.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/responsive-1200px-min.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/responsive-767px-max.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/responsive-768px-979px.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/responsive-navbar.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/responsive.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/site.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/sticky-footer.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/assets/less/variables.less
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/cheatsheet.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/community.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/design.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/examples.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/get-started.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/icons.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/icons.yml
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/index.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/license.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/test.html
+    lib/gollum/public/gollum/css/font-awesome-3.2.1/src/whats-new.html
     lib/gollum/public/gollum/css/gollum.css
     lib/gollum/public/gollum/css/ie7.css
     lib/gollum/public/gollum/css/print.css
@@ -82,7 +278,12 @@ Gem::Specification.new do |s|
     lib/gollum/public/gollum/javascript/identicon_canvas.js
     lib/gollum/public/gollum/javascript/jquery-1.7.2.min.js
     lib/gollum/public/gollum/javascript/jquery.color.js
+    lib/gollum/public/gollum/javascript/jquery.tagcloud.js
     lib/gollum/public/gollum/javascript/mousetrap.min.js
+    lib/gollum/public/gollum/javascript/tipsy/LICENSE
+    lib/gollum/public/gollum/javascript/tipsy/images/tipsy.gif
+    lib/gollum/public/gollum/javascript/tipsy/javascripts/jquery.tipsy.js
+    lib/gollum/public/gollum/javascript/tipsy/stylesheets/tipsy.css
     lib/gollum/public/gollum/livepreview/css/custom.css
     lib/gollum/public/gollum/livepreview/images/cancel_24.png
     lib/gollum/public/gollum/livepreview/images/globe_24.png
@@ -516,6 +717,7 @@ Gem::Specification.new do |s|
     lib/gollum/templates/pages.mustache
     lib/gollum/templates/search.mustache
     lib/gollum/templates/searchbar.mustache
+    lib/gollum/templates/tags.mustache
     lib/gollum/uri_encode_component.rb
     lib/gollum/views/compare.rb
     lib/gollum/views/create.rb
@@ -529,7 +731,9 @@ Gem::Specification.new do |s|
     lib/gollum/views/page.rb
     lib/gollum/views/pages.rb
     lib/gollum/views/search.rb
+    lib/gollum/views/tags.rb
     licenses/css_tree_menu_thecssninja/license.txt
+    licenses/jquery.tagcloud.js/LICENSE
     licenses/licenses.txt
     licenses/unity_asset_pool/COPYRIGHT
     openrc/conf.d/gollum
