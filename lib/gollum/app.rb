@@ -469,9 +469,21 @@ module Precious
       wiki = wiki_new
       # Sort wiki search results by count (desc) and then by name (asc)
       @results = wiki.search(@query).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
-      @results.each do |r|
-        r[:title] = page_header_from_page_name r[:name]
+      
+      tmp = nil
+      @results.map do |r|
+        to_removed = @results.index{|item| item[:name] =~ /^_/}
+        @results.delete_at to_removed if to_removed
       end
+      @results.each do |r|
+        
+        begin
+          r[:title] = page_header_from_page_name r[:name]
+        rescue
+          r[:title] = r[:name]
+        end
+      end
+      p @results
       @name = @query
       mustache :search
     end
