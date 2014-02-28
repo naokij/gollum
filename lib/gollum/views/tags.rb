@@ -3,6 +3,14 @@ module Precious
     class Tags < Layout
       attr_reader :content, :page, :footer, :tags
 
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
+      
       def title
         "Tags"
       end

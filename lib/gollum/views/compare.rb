@@ -4,6 +4,14 @@ module Precious
       include HasPage
 
       attr_reader :page, :diff, :versions, :message
+      
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
 
       def title
         "Comparison of #{@page.title}"

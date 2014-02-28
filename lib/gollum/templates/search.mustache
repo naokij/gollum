@@ -7,6 +7,22 @@
     </li>
     <li class="minibutton"><a href="{{base_url}}/"
        class="action-home-page">Home</a></li>
+   {{#signedin}}
+   <li class="minibutton jaws" rel='tipsy' title='New Page'>
+     <a href="#" id="minibutton-new-page"><i class="icon-plus"></i></a></li>
+   {{#allow_uploads}}
+   <li class="minibutton jaws" rel='tipsy' title='Upload file'>
+     <a href="#" id="minibutton-upload-page"><i class="icon-upload"></i></a></li>
+   {{/allow_uploads}}
+   <li class="minibutton" rel='tipsy' title='Sign out'>
+     <a href="{{base_url}}/logout"><i class='icon-signout'></i></a>
+   </li>
+   {{/signedin}}
+   {{#not_signedin}}
+   <li class="minibutton" rel='tipsy' title="Sign in">
+     <a href="{{base_url}}/auth/ldap"><i class="icon-signin"></i></a>
+   </li>
+   {{/not_signedin}}
   </ul>
 </div>
 <div id="results">

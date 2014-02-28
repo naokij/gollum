@@ -4,6 +4,14 @@ module Precious
       include Editable
 
       attr_reader :page, :name
+      
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
 
       def title
         "Create a new page"

@@ -8,6 +8,14 @@ module Precious
       DEFAULT_AUTHOR = 'you'
       @@to_xml =  { :save_with => Nokogiri::XML::Node::SaveOptions::DEFAULT_XHTML ^ 1, :indent => 0, :encoding => 'UTF-8' }
 
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
+      
       def title
         h1 = @h1_title ? page_header_from_content(@content) : false
         h1 || @page.url_path_title

@@ -5,11 +5,30 @@
     <li class="minibutton">
       {{>searchbar}}
     </li>
-    <li class="minibutton"><a href="{{base_url}}/"
-       class="action-home-page">Home</a></li>
-    <li class="minibutton jaws">
-    <a href="#" id="minibutton-new-page">New</a>
+    <li class="minibutton" rel='tipsy' title='Home'><a href="{{base_url}}/"
+       class="action-home-page"><i class="icon-home"></i></i></a></li>
+    <li class="minibutton" rel='tipsy' title='Pages'><a href="{{base_url}}/pages"
+      class="action-all-pages"><i class="icon-list"></i></a></li>
+    <li class="minibutton" rel='tipsy' title='Files'><a href="{{base_url}}/fileview"
+    class="action-fileview"><i class="icon-file"></i></a></li>
+    <li class="minibutton" rel='tipsy' title='Tags'><a href="{{base_url}}/tags"
+    class="action-tags"><i class="icon-tags"></i></a></li>
+    {{#signedin}}
+    <li class="minibutton jaws" rel='tipsy' title='New Page'>
+      <a href="#" id="minibutton-new-page"><i class="icon-plus"></i></a></li>
+    {{#allow_uploads}}
+    <li class="minibutton jaws" rel='tipsy' title='Upload file'>
+      <a href="#" id="minibutton-upload-page"><i class="icon-upload"></i></a></li>
+    {{/allow_uploads}}
+    <li class="minibutton" rel='tipsy' title='Sign out'>
+      <a href="{{base_url}}/logout"><i class='icon-signout'></i></a>
     </li>
+    {{/signedin}}
+    {{#not_signedin}}
+    <li class="minibutton" rel='tipsy' title="Sign in">
+      <a href="{{base_url}}/auth/ldap"><i class="icon-signin"></i></a>
+    </li>
+    {{/not_signedin}}
   </ul>
 </div>
 <div id="pages">

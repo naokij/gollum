@@ -244,6 +244,14 @@ a:hover, a:visited {
   font-weight: bold;
 }
 
+#footer ul.actions li {
+  color: #999;
+  float: left;
+  list-style-position: inside;
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0.75em;
+}
 
 /* @section history */
 .history h1 {
@@ -731,4 +739,10 @@ ul.actions {
 
 .clearfloats {
   clear: both;
+}
+
+/* @section tags */
+#tagcloud{
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }

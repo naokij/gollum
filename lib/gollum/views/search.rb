@@ -3,6 +3,14 @@ module Precious
     class Search < Layout
       attr_reader :content, :page, :footer, :results, :query
 
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
+      
       def title
         "Search results for " + @query
       end

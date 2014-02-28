@@ -5,6 +5,7 @@ require 'gollum-lib'
 require 'mustache/sinatra'
 require 'useragent'
 require 'stringex'
+require 'omniauth-ldap'
 
 require 'gollum'
 require 'gollum/views/layout'
@@ -58,7 +59,59 @@ module Precious
       ua = UserAgent.parse(user_agent)
       @@min_ua.detect {|min| ua >= min }
     end
-
+    
+    use Rack::Session::Cookie,
+        :key => "wiki.gollum.info",
+        :path => "/",
+        :expire_after => 86400 * 30,
+        :secret => "i m always not the root"
+        
+    OmniAuth.config.on_failure = Proc.new { |env|
+          OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+    }
+    
+    use OmniAuth::Strategies::LDAP, 
+            :title => "Login", 
+            :host => ENV['ldap_host'],
+            :port =>  ENV['ldap_port'],
+            :method => :plain,
+            :base => ENV['ldap_base'],
+            :uid => ENV['ldap_uid'],
+            :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')},
+            :bind_dn => 'default_bind_dn',
+            # Or, alternatively:
+            #:filter => '(&(uid=%{username})(memberOf=cn=myapp-users,ou=groups,dc=example,dc=com))'
+            :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')},
+            :bind_dn => ENV['ldap_bind_dn'],
+            :password => ENV['ldap_password']
+    
+    def protected!
+      unless authorized?
+        redirect to('/auth/ldap')
+      end
+    end
+    
+    def authorized?
+      #p session[:authorized_user]
+      session[:authorized_user]
+    end
+    
+    post '/auth/ldap/callback' do
+      begin
+        auth = request.env['omniauth.auth']
+        session[:authorized_user] = auth.info
+        session['gollum.author'] = {:name => auth.info.name, :email => auth.info.email}
+        redirect to('/')
+      rescue
+        redirect to('/auth/ldap')
+      end
+    end
+    
+    get '/logout' do
+      session[:authorized_user] = nil
+      redirect to('/')
+    end
+        
     # We want to serve public assets for now
     set :public_folder, "#{dir}/public/gollum"
     set :static,         true
@@ -91,6 +144,7 @@ module Precious
       settings.wiki_options.merge!({ :base_path => @base_url })
       @css = settings.wiki_options[:css]
       @js = settings.wiki_options[:js]
+      @signedin = authorized?
     end
 
     get '/' do
@@ -126,6 +180,7 @@ module Precious
     end
 
     get '/edit/*' do
+      protected!
       wikip = wiki_page(params[:splat].first)
       @name = wikip.name
       @path = wikip.path
@@ -150,6 +205,7 @@ module Precious
     end
 
     post '/uploadFile' do
+      protected!
       wiki = wiki_new
 
       unless wiki.allow_uploads
@@ -163,7 +219,7 @@ module Precious
         tempfile = params[:file][:tempfile]
       end
 
-      dir = wiki.per_page_uploads ? params[:upload_dest] : 'uploads'
+      dir = settings.wiki_options[:per_page_uploads] ? params[:upload_dest] : 'uploads'
       ext = ::File.extname(fullname)
       format = ext.split('.').last || 'txt'
       filename = ::File.basename(fullname, ext)
@@ -197,6 +253,7 @@ module Precious
     end
 
     post '/rename/*' do
+      protected!
       wikip     = wiki_page(params[:splat].first)
       halt 500 if wikip.nil?
       wiki      = wikip.wiki
@@ -233,6 +290,7 @@ module Precious
     end
 
     post '/edit/*' do
+      protected!
       path      = '/' + clean_url(sanitize_empty_params(params[:path])).to_s
       page_name = CGI.unescape(params[:page])
       wiki      = wiki_new
@@ -251,6 +309,7 @@ module Precious
     end
 
     get '/delete/*' do
+      protected!
       wikip = wiki_page(params[:splat].first)
       name = wikip.name
       wiki = wikip.wiki
@@ -263,6 +322,7 @@ module Precious
     end
 
     get '/create/*' do
+      protected!
       wikip = wiki_page(params[:splat].first.gsub('+', '-'))
       @name = wikip.name.to_url
       @path = wikip.path
@@ -286,6 +346,7 @@ module Precious
     end
 
     post '/create' do
+      protected!
       name         = params[:page].to_url
       path         = sanitize_empty_params(params[:path]) || ''
       format       = params[:format].intern
@@ -305,6 +366,7 @@ module Precious
     end
 
     post '/revert/*/:sha1/:sha2' do
+      protected!
       wikip        = wiki_page(params[:splat].first)
       @path        = wikip.path
       @name        = wikip.name
@@ -328,6 +390,7 @@ module Precious
     end
 
     post '/preview' do
+      protected!
       wiki     = wiki_new
       @name    = params[:page] || "Preview"
       @page    = wiki.preview_page(@name, params[:content], params[:format])

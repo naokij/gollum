@@ -5,6 +5,14 @@ module Precious
 
       attr_reader :page, :page_num
 
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
+      
       def title
         @page.title
       end

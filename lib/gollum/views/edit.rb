@@ -5,7 +5,15 @@ module Precious
       include HasPage
 
       attr_reader :page, :content
-
+      
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
+      
        # return path set in app.rb not @page.path
        def path
          @path

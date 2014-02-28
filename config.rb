@@ -15,6 +15,16 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 Gollum::Page::FORMAT_NAMES = { :markdown  => "Markdown" }
 
 =begin
+put these lines on top of config.ru on wiki repository
+ENV['ldap_host'] = '10.0.0.1'
+ENV['ldap_port'] = '3268'
+ENV['ldap_base'] = 'DC=northwind,DC=com'
+ENV['ldap_uid'] = 'sAMAccountName'
+ENV['ldap_bind_dn'] = 'CN=ldap helper,OU=northwind.com,DC=northwind,DC=com'
+ENV['ldap_password'] = 'password'
+=end
+
+=begin
 Valid formats are:
 { :markdown  => "Markdown",
   :textile   => "Textile",

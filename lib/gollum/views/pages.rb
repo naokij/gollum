@@ -5,7 +5,15 @@ module Precious
     class Pages < Layout
       attr_reader :results, :ref
       include Precious::Helpers
-
+      
+      def signedin
+        @signedin
+      end
+      
+      def not_signedin
+        ! @signedin
+      end
+      
       def title
         "All pages in #{@ref}"
       end
