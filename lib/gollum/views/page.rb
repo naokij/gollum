@@ -56,11 +56,19 @@ module Precious
       end
       
       def has_tag
-        @page.metadata["tag"] ? true : false
+        begin
+          @page.metadata["tag"] ? true : false
+        rescue
+          false
+        end
       end
       
       def no_tag
-        @page.metadata["tag"] ? false : true
+        begin
+          @page.metadata["tag"] ? false : true
+        rescue
+          true
+        end
       end
       
       def noindex
