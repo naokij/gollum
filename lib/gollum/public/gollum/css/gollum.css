@@ -149,6 +149,12 @@ a:hover, a:visited {
   text-shadow: 0 1px 0 #fff;
 }
 
+#wiki-sidebar ul li{
+  /*list-style-position: inside;*/
+  list-style-type: circle;
+  list-style-image:url("../images/li-chevron.png");
+}
+
 /* Back arrow */
 #wiki-sidebar p.parent:before {
   color: #666;
@@ -410,7 +416,9 @@ a:hover, a:visited {
 .results #results ul li {
   font-size: 1.2em;
   line-height: 1.6em;
-  list-style-position: outside;
+  list-style-position: inside;
+  list-style-type: circle;
+  list-style-image:url("../images/li-chevron.png");
   padding: 0.2em 0;
 }
 
