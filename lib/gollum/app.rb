@@ -497,7 +497,7 @@ module Precious
         # Sort wiki search results by count (desc) and then by name (asc)
         results = wiki.search(tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
         @results = @results & results if @results != []
-        @results = results if @tags.last != tag or @tags.last == @tags.first
+        @results = results if @tags.first != tag or @tags.last == @tags.first
         p @results
       end #@tags.map
       
