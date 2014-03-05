@@ -496,25 +496,20 @@ module Precious
       @tags.each do |tag|
         # Sort wiki search results by count (desc) and then by name (asc)
         results = wiki.search(tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
-        @results = @results & results if @results != []
-        @results = results if @tags.first = tag or @tags.last == @tags.first
-        p @results
+        results.collect{ |result| result[:count] = 0}
+        @results << results
       end #@tags.map
-      
-      tmp = nil
-      @results.map do |r|
-        #remove sidebar footer and header from search result
-        to_removed = @results.index{|item| item[:name] =~ /^_/}
-        @results.delete_at to_removed if to_removed
-        #remove assets from search result
-        to_removed = @results.index{|item| item[:name] =~ /\.(png|jpg|gif|jpeg)$/i}
-        @results.delete_at to_removed if to_removed
-        to_removed = @results.index{|item| item[:name] =~ /\.(png|jpg|gif|jpeg) matches$/i}
-        @results.delete_at to_removed if to_removed
-      end #@results.map
-      
+      @results = @results.inject(:&)
+      @results.collect! do |r|
+        #remove sidebar footer and header & assets from search result
+        if r[:name] =~ /^_/ or r[:name] =~ /\.(png|jpg|gif|jpeg)( matches){0,1}$/i
+          nil
+        else
+          r
+        end
+      end #@results.collect!
+      @results.compact!
       @results.each do |r|
-        
         begin
           r[:title] = page_header_from_page_name r[:name]
         rescue
