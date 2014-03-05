@@ -12,7 +12,7 @@ module Precious
       end
       
       def title
-        "Tags / <strong>" + @tags.join(' + ') + '</strong>'
+        "Tags / " + @tags.join(' + ')
       end
 
       def has_results
