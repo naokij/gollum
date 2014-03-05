@@ -48,7 +48,7 @@ module Precious
         begin
           tag = tag.split(" ").sort
           tag.map do |t| 
-            t = { "name" => t, "url" => "/search?q="+CGI.escape(t)}
+            t = { "name" => t, "url" => "/tag/"+CGI.escape(t)}
           end
         rescue
           tag = []

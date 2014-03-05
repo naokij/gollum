@@ -483,11 +483,37 @@ module Precious
           r[:title] = r[:name]
         end
       end
-      p @results
       @name = @query
       mustache :search
     end
 
+    get %r{/tag/(.+)} do
+      @tag = params[:captures][0]
+      wiki = wiki_new
+      # Sort wiki search results by count (desc) and then by name (asc)
+      @results = wiki.search(@tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
+      
+      tmp = nil
+      @results.map do |r|
+        #remove sidebar footer and header from search result
+        to_removed = @results.index{|item| item[:name] =~ /^_/}
+        @results.delete_at to_removed if to_removed
+        #remove assets from search result
+        to_removed = @results.index{|item| item[:name] =~ /\.(png|jpg|gif|jpeg)$/i}
+        @results.delete_at to_removed if to_removed
+      end
+      @results.each do |r|
+        
+        begin
+          r[:title] = page_header_from_page_name r[:name]
+        rescue
+          r[:title] = r[:name]
+        end
+      end
+      @name = @query
+      mustache :tag
+    end
+  
     get %r{
       /pages  # match any URL beginning with /pages
       (?:     # begin an optional non-capturing group
@@ -538,7 +564,7 @@ module Precious
           end
         end
         if tags_found == 0 
-          @tags << {:name => tag_name, :url => "search?q="+CGI.escape(tag_name), :count => 1}
+          @tags << {:name => tag_name, :url => "tag/="+CGI.escape(tag_name), :count => 1}
         end
       end
       mustache :tags
