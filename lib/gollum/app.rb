@@ -488,10 +488,18 @@ module Precious
     end
 
     get %r{/tag/(.+)} do
-      @tag = params[:captures][0]
+      @tags = params[:captures][0]
+      @tags = @tags.split '/'
+      @tag = @tags.join ' + '
       wiki = wiki_new
-      # Sort wiki search results by count (desc) and then by name (asc)
-      @results = wiki.search(@tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
+      @results = []
+      @tags.each do |tag|
+        # Sort wiki search results by count (desc) and then by name (asc)
+        results = wiki.search(tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
+        @results = @results & results if @results != []
+        @results = results if @tags.last != tag or @tags.last == @tags.first
+        p @results
+      end #@tags.map
       
       tmp = nil
       @results.map do |r|
@@ -503,7 +511,8 @@ module Precious
         @results.delete_at to_removed if to_removed
         to_removed = @results.index{|item| item[:name] =~ /\.(png|jpg|gif|jpeg) matches$/i}
         @results.delete_at to_removed if to_removed
-      end
+      end #@results.map
+      
       @results.each do |r|
         
         begin
@@ -512,7 +521,6 @@ module Precious
           r[:title] = r[:name]
         end
       end
-      @name = @query
       mustache :tag
     end
   
