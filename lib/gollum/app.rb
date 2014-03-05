@@ -501,6 +501,8 @@ module Precious
         #remove assets from search result
         to_removed = @results.index{|item| item[:name] =~ /\.(png|jpg|gif|jpeg)$/i}
         @results.delete_at to_removed if to_removed
+        to_removed = @results.index{|item| item[:name] =~ /\.(png|jpg|gif|jpeg) matches$/i}
+        @results.delete_at to_removed if to_removed
       end
       @results.each do |r|
         
