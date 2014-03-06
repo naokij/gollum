@@ -495,8 +495,16 @@ module Precious
       @results = []
       @tags.each do |tag|
         # Sort wiki search results by count (desc) and then by name (asc)
-        results = wiki.search(tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
-        results.collect{ |result| result[:count] = 0}
+        results = wiki.pages.collect do |page|
+          begin
+            page.metadata["tag"].include?(tag) ? {:name =>page.name } : nil
+          rescue
+            nil
+          end
+        end
+        results.compact!
+        #results = wiki.search(tag).sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
+        results.collect{ |result| result.delete :count }
         @results << results
       end #@tags.map
       @results = @results.inject(:&)
