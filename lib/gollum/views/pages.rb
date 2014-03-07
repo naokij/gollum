@@ -58,11 +58,20 @@ module Precious
             elsif page_path != ".gitkeep"
               begin
                 page_title = page_header_from_page_name page.name
+                page_tags = page.metadata["tag"]
+                page_tags = page_tags.split ' '
               rescue
                 #todo
-                page_title = page.name + '-<<<<'
+                page_title = page.name + '-<'
+                page_tags = []
               end
-              %{<li><a href="#{@base_url}/#{page.escaped_url_path}" class="file">#{page_title}</a></li>}
+              if page_tags.count > 0
+                tags_html = page_tags.join(" ")
+                tags_html = "<span class='tags'><i class=\"icon-tags\"></i> #{tags_html}</span>"
+              else
+                tags_html = ""
+              end
+              %{<li><a href="#{@base_url}/#{page.escaped_url_path}" class="file">#{page_title}</a> #{tags_html}</li>}
             end
           }.compact.join("\n")
         else

@@ -745,6 +745,12 @@ ul.actions {
   padding: 0.25em;
 }
 
+#pages .tags {
+  font-size: 0.8em;
+  color: grey;
+  display: block;
+  float: right;
+}
 .clearfloats {
   clear: both;
 }
